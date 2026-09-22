@@ -18,7 +18,7 @@
 
     <meta
         name="description"
-        content="Una bitácora personal para registrar tus pendientes diarios."
+        content="Log+ - Tu bitácora personal."
     >
 
 
@@ -36,7 +36,7 @@
 
     <meta
         name="apple-mobile-web-app-title"
-        content="Bitácora"
+        content="Log+"
     >
 
     <link
@@ -45,7 +45,9 @@
     >
 
 
-    <title>Bitácora</title>
+    <!-- NOMBRE DE LA APP -->
+
+    <title>Log+</title>
 
 
     <!-- PWA -->
@@ -77,10 +79,13 @@
 
         <div class="header-top">
 
-            <div>
+
+            <!-- NOMBRE -->
+
+            <div class="brand">
 
                 <h1>
-                    Bitácora
+                    Log+
                 </h1>
 
                 <p id="currentDate"></p>
@@ -88,33 +93,50 @@
             </div>
 
 
-            <!-- BOTÓN + -->
+            <!-- ACCIONES -->
 
-            <button
-                id="addButton"
-                class="add-button"
-                aria-label="Crear nuevo pendiente"
-                title="Nuevo pendiente"
-            >
+            <div class="header-actions">
 
-                <svg
-                    viewBox="0 0 24 24"
-                    width="24"
-                    height="24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2.5"
-                    stroke-linecap="round"
-                    aria-hidden="true"
+
+                <!-- LOGO -->
+
+                <img
+                    src="./icons/logo.png"
+                    alt="Log+"
+                    class="profile-logo"
                 >
 
-                    <path d="M12 5v14"/>
 
-                    <path d="M5 12h14"/>
+                <!-- BOTÓN + -->
 
-                </svg>
+                <button
+                    id="addButton"
+                    class="add-button"
+                    aria-label="Crear nuevo pendiente"
+                    title="Nuevo pendiente"
+                >
 
-            </button>
+                    <svg
+                        viewBox="0 0 24 24"
+                        width="24"
+                        height="24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2.5"
+                        stroke-linecap="round"
+                        aria-hidden="true"
+                    >
+
+                        <path d="M12 5v14"/>
+
+                        <path d="M5 12h14"/>
+
+                    </svg>
+
+                </button>
+
+
+            </div>
 
         </div>
 
@@ -286,6 +308,7 @@
 
             </div>
 
+
         </div>
 
     </header>
@@ -301,8 +324,6 @@
             id="taskList"
             class="task-list"
         >
-
-            <!-- Las tareas se generan mediante JavaScript -->
 
         </div>
 
@@ -320,14 +341,13 @@
 
         <div class="modal-content">
 
+
             <h2>
                 Nuevo pendiente
             </h2>
 
 
-            <!-- ====================================
-                 TEXTO DE LA TAREA
-            ==================================== -->
+            <!-- TEXTO MULTILÍNEA -->
 
             <textarea
                 id="taskInput"
@@ -338,9 +358,7 @@
             ></textarea>
 
 
-            <!-- ====================================
-                 FECHA DE LA TAREA
-            ==================================== -->
+            <!-- FECHA -->
 
             <div class="task-date-section">
 
@@ -376,8 +394,6 @@
                 </select>
 
 
-                <!-- FECHA PERSONALIZADA -->
-
                 <div
                     id="customDateContainer"
                     class="custom-date-container hidden"
@@ -402,9 +418,7 @@
             </div>
 
 
-            <!-- ====================================
-                 BOTONES
-            ==================================== -->
+            <!-- BOTONES -->
 
             <div class="modal-buttons">
 
@@ -424,6 +438,7 @@
                 </button>
 
             </div>
+
 
         </div>
 

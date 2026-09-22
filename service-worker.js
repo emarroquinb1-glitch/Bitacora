@@ -1,8 +1,8 @@
 // ========================================
-// SERVICE WORKER - BITÁCORA
+// SERVICE WORKER - LOG+
 // ========================================
 
-const CACHE_NAME = "bitacora-v5";
+const CACHE_NAME = "logplus-v1";
 
 const APP_FILES = [
     "./",
@@ -10,8 +10,7 @@ const APP_FILES = [
     "./style.css",
     "./app.js",
     "./manifest.json",
-    "./icons/icon-192.png",
-    "./icons/icon-512.png"
+    "./icons/logo.png"
 ];
 
 
