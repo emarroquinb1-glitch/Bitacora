@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <!-- ========================================
+         CONFIGURACIÓN BÁSICA
+    ======================================== -->
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="theme-color"
+        content="#ffffff"
+    >
+
+    <meta
+        name="description"
+        content="Una bitácora personal para registrar tus pendientes diarios."
+    >
+
+
+    <!-- ========================================
+         CONFIGURACIÓN PARA iPHONE / iOS
+    ======================================== -->
+
+    <meta
+        name="apple-mobile-web-app-capable"
+        content="yes"
+    >
+
+    <meta
+        name="apple-mobile-web-app-status-bar-style"
+        content="default"
+    >
+
+    <meta
+        name="apple-mobile-web-app-title"
+        content="Bitácora"
+    >
+
+    <link
+        rel="apple-touch-icon"
+        href="./icons/icon-192.png"
+    >
+
+
+    <!-- ========================================
+         TÍTULO
+    ======================================== -->
+
+    <title>Bitácora</title>
+
+
+    <!-- ========================================
+         MANIFEST
+    ======================================== -->
+
+    <link
+        rel="manifest"
+        href="./manifest.json"
+    >
+
+
+    <!-- ========================================
+         ESTILOS
+    ======================================== -->
+
+    <link
+        rel="stylesheet"
+        href="./style.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- ========================================
+         ENCABEZADO
+    ======================================== -->
+
+    <header class="header">
+
+        <div>
+
+            <h1>Bitácora</h1>
+
+            <p id="currentDate"></p>
+
+        </div>
+
+
+        <!-- ========================================
+             BOTÓN NUEVO PENDIENTE
+        ======================================== -->
+
+        <button
+            id="addButton"
+            class="add-button"
+            aria-label="Crear nuevo pendiente"
+            title="Nuevo pendiente"
+        >
+
+            <svg
+                viewBox="0 0 24 24"
+                width="24"
+                height="24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                aria-hidden="true"
+            >
+
+                <path d="M12 5v14"/>
+                <path d="M5 12h14"/>
+
+            </svg>
+
+        </button>
+
+    </header>
+
+
+    <!-- ========================================
+         CONTENIDO PRINCIPAL
+    ======================================== -->
+
+    <main class="container">
+
+        <div
+            id="taskList"
+            class="task-list"
+        >
+
+            <!--
+                Las tareas y los grupos por día
+                son generados automáticamente
+                mediante JavaScript.
+            -->
+
+        </div>
+
+    </main>
+
+
+    <!-- ========================================
+         MODAL PARA CREAR / EDITAR
+    ======================================== -->
+
+    <div
+        id="taskModal"
+        class="modal hidden"
+    >
+
+        <div class="modal-content">
+
+            <h2>Nuevo pendiente</h2>
+
+
+            <input
+                type="text"
+                id="taskInput"
+                placeholder="¿Qué necesitas recordar?"
+                autocomplete="off"
+            >
+
+
+            <div class="modal-buttons">
+
+                <button
+                    id="cancelButton"
+                    type="button"
+                >
+                    Cancelar
+                </button>
+
+
+                <button
+                    id="saveButton"
+                    type="button"
+                >
+                    Guardar
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ========================================
+         JAVASCRIPT
+    ======================================== -->
+
+    <script src="./app.js"></script>
+
+</body>
+
+</html>

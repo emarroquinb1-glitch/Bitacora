@@ -1,0 +1,24 @@
+{
+    "name": "Bitácora",
+    "short_name": "Bitácora",
+    "description": "Una bitácora personal para registrar tus pendientes diarios.",
+    "lang": "es",
+    "start_url": "./",
+    "scope": "./",
+    "display": "standalone",
+    "background_color": "#f5f5f7",
+    "theme_color": "#ffffff",
+
+    "icons": [
+        {
+            "src": "./icons/icon-192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "./icons/icon-512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
+}
