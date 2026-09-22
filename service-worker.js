@@ -2,7 +2,7 @@
 // SERVICE WORKER - BITÁCORA
 // ========================================
 
-const CACHE_NAME = "bitacora-v2";
+const CACHE_NAME = "bitacora-v5";
 
 const APP_FILES = [
     "./",
@@ -19,109 +19,93 @@ const APP_FILES = [
 // INSTALACIÓN
 // ========================================
 
-self.addEventListener(
-    "install",
-    event => {
+self.addEventListener("install", event => {
 
-        event.waitUntil(
+    event.waitUntil(
 
-            caches.open(CACHE_NAME)
-                .then(cache => {
+        caches.open(CACHE_NAME)
+            .then(cache => {
 
-                    return cache.addAll(
-                        APP_FILES
-                    );
+                return cache.addAll(APP_FILES);
 
-                })
+            })
 
-        );
+    );
 
-        self.skipWaiting();
+    self.skipWaiting();
 
-    }
-);
+});
 
 
 // ========================================
 // ACTIVACIÓN
 // ========================================
 
-self.addEventListener(
-    "activate",
-    event => {
+self.addEventListener("activate", event => {
 
-        event.waitUntil(
+    event.waitUntil(
 
-            caches.keys()
-                .then(cacheNames => {
+        caches.keys()
+            .then(cacheNames => {
 
-                    return Promise.all(
+                return Promise.all(
 
-                        cacheNames.map(
-                            cacheName => {
+                    cacheNames.map(cacheName => {
 
-                                if (
-                                    cacheName !==
-                                    CACHE_NAME
-                                ) {
+                        if (
+                            cacheName !== CACHE_NAME
+                        ) {
 
-                                    return caches.delete(
-                                        cacheName
-                                    );
+                            return caches.delete(
+                                cacheName
+                            );
 
-                                }
+                        }
 
-                            }
-                        )
+                    })
 
-                    );
+                );
 
-                })
+            })
 
-        );
+    );
 
-        self.clients.claim();
+    self.clients.claim();
 
-    }
-);
+});
 
 
 // ========================================
 // PETICIONES
 // ========================================
 
-self.addEventListener(
-    "fetch",
-    event => {
+self.addEventListener("fetch", event => {
 
-        if (
-            event.request.method !== "GET"
-        ) {
+    if (
+        event.request.method !== "GET"
+    ) {
 
-            return;
-
-        }
-
-        event.respondWith(
-
-            caches.match(
-                event.request
-            )
-                .then(cachedResponse => {
-
-                    if (cachedResponse) {
-
-                        return cachedResponse;
-
-                    }
-
-                    return fetch(
-                        event.request
-                    );
-
-                })
-
-        );
+        return;
 
     }
-);
+
+
+    event.respondWith(
+
+        fetch(event.request)
+            .then(response => {
+
+                return response;
+
+            })
+            .catch(() => {
+
+                return caches.match(
+                    event.request
+                );
+
+            })
+
+    );
+
+});

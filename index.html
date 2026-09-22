@@ -3,10 +3,7 @@
 
 <head>
 
-    <!-- ========================================
-         CONFIGURACIÓN BÁSICA
-    ======================================== -->
-
+    <!-- CONFIGURACIÓN BÁSICA -->
     <meta charset="UTF-8">
 
     <meta
@@ -25,9 +22,7 @@
     >
 
 
-    <!-- ========================================
-         CONFIGURACIÓN PARA iPHONE / iOS
-    ======================================== -->
+    <!-- CONFIGURACIÓN PARA iPHONE / iOS -->
 
     <meta
         name="apple-mobile-web-app-capable"
@@ -50,16 +45,10 @@
     >
 
 
-    <!-- ========================================
-         TÍTULO
-    ======================================== -->
-
     <title>Bitácora</title>
 
 
-    <!-- ========================================
-         MANIFEST
-    ======================================== -->
+    <!-- PWA -->
 
     <link
         rel="manifest"
@@ -67,9 +56,7 @@
     >
 
 
-    <!-- ========================================
-         ESTILOS
-    ======================================== -->
+    <!-- CSS -->
 
     <link
         rel="stylesheet"
@@ -88,49 +75,224 @@
 
     <header class="header">
 
-        <div>
+        <div class="header-top">
 
-            <h1>Bitácora</h1>
+            <div>
 
-            <p id="currentDate"></p>
+                <h1>
+                    Bitácora
+                </h1>
+
+                <p id="currentDate"></p>
+
+            </div>
+
+
+            <!-- BOTÓN + -->
+
+            <button
+                id="addButton"
+                class="add-button"
+                aria-label="Crear nuevo pendiente"
+                title="Nuevo pendiente"
+            >
+
+                <svg
+                    viewBox="0 0 24 24"
+                    width="24"
+                    height="24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2.5"
+                    stroke-linecap="round"
+                    aria-hidden="true"
+                >
+
+                    <path d="M12 5v14"/>
+
+                    <path d="M5 12h14"/>
+
+                </svg>
+
+            </button>
 
         </div>
 
 
         <!-- ========================================
-             BOTÓN NUEVO PENDIENTE
+             BUSCADOR Y FILTROS
         ======================================== -->
 
-        <button
-            id="addButton"
-            class="add-button"
-            aria-label="Crear nuevo pendiente"
-            title="Nuevo pendiente"
-        >
+        <div class="filters-area">
 
-            <svg
-                viewBox="0 0 24 24"
-                width="24"
-                height="24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2.5"
-                stroke-linecap="round"
-                aria-hidden="true"
+
+            <!-- BUSCADOR -->
+
+            <div class="search-box">
+
+                <svg
+                    class="search-icon"
+                    viewBox="0 0 24 24"
+                    width="19"
+                    height="19"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                >
+
+                    <circle
+                        cx="11"
+                        cy="11"
+                        r="7"
+                    />
+
+                    <path d="m20 20-4-4"/>
+
+                </svg>
+
+
+                <input
+                    type="search"
+                    id="searchInput"
+                    placeholder="Buscar tarea"
+                    autocomplete="off"
+                    aria-label="Buscar tarea"
+                >
+
+            </div>
+
+
+            <!-- FILTRO DE ESTADO -->
+
+            <div class="filter-box">
+
+                <svg
+                    class="filter-icon"
+                    viewBox="0 0 24 24"
+                    width="18"
+                    height="18"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                >
+
+                    <path d="M4 6h16"/>
+
+                    <path d="M7 12h10"/>
+
+                    <path d="M10 18h4"/>
+
+                </svg>
+
+
+                <select
+                    id="statusFilter"
+                    aria-label="Filtrar por estado"
+                >
+
+                    <option value="all">
+                        Todas
+                    </option>
+
+                    <option value="pending">
+                        Pendientes
+                    </option>
+
+                    <option value="completed">
+                        Completadas
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <!-- FILTRO DE FECHA -->
+
+            <div
+                class="date-filter-box"
+                id="dateFilterBox"
             >
 
-                <path d="M12 5v14"/>
-                <path d="M5 12h14"/>
+                <svg
+                    class="calendar-icon"
+                    viewBox="0 0 24 24"
+                    width="18"
+                    height="18"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                >
 
-            </svg>
+                    <rect
+                        x="3"
+                        y="4"
+                        width="18"
+                        height="18"
+                        rx="3"
+                    />
 
-        </button>
+                    <path d="M16 2v4"/>
+
+                    <path d="M8 2v4"/>
+
+                    <path d="M3 10h18"/>
+
+                </svg>
+
+
+                <input
+                    type="date"
+                    id="dateFilter"
+                    aria-label="Filtrar por fecha"
+                >
+
+
+                <button
+                    id="clearDateButton"
+                    class="clear-date-button hidden"
+                    type="button"
+                    aria-label="Mostrar todas las fechas"
+                    title="Mostrar todas las fechas"
+                >
+
+                    <svg
+                        viewBox="0 0 24 24"
+                        width="16"
+                        height="16"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        aria-hidden="true"
+                    >
+
+                        <path d="M6 6l12 12"/>
+
+                        <path d="M18 6L6 18"/>
+
+                    </svg>
+
+                </button>
+
+            </div>
+
+        </div>
 
     </header>
 
 
     <!-- ========================================
-         CONTENIDO PRINCIPAL
+         CONTENIDO
     ======================================== -->
 
     <main class="container">
@@ -140,11 +302,7 @@
             class="task-list"
         >
 
-            <!--
-                Las tareas y los grupos por día
-                son generados automáticamente
-                mediante JavaScript.
-            -->
+            <!-- Las tareas se generan mediante JavaScript -->
 
         </div>
 
@@ -152,7 +310,7 @@
 
 
     <!-- ========================================
-         MODAL PARA CREAR / EDITAR
+         MODAL CREAR / EDITAR
     ======================================== -->
 
     <div
@@ -162,16 +320,91 @@
 
         <div class="modal-content">
 
-            <h2>Nuevo pendiente</h2>
+            <h2>
+                Nuevo pendiente
+            </h2>
 
 
-            <input
-                type="text"
+            <!-- ====================================
+                 TEXTO DE LA TAREA
+            ==================================== -->
+
+            <textarea
                 id="taskInput"
+                class="task-input"
                 placeholder="¿Qué necesitas recordar?"
                 autocomplete="off"
-            >
+                rows="4"
+            ></textarea>
 
+
+            <!-- ====================================
+                 FECHA DE LA TAREA
+            ==================================== -->
+
+            <div class="task-date-section">
+
+                <label
+                    for="taskDate"
+                    class="task-date-label"
+                >
+                    ¿Para qué día?
+                </label>
+
+
+                <select
+                    id="taskDate"
+                    class="task-date-select"
+                >
+
+                    <option value="today">
+                        Hoy
+                    </option>
+
+                    <option value="tomorrow">
+                        Mañana
+                    </option>
+
+                    <option value="yesterday">
+                        Ayer
+                    </option>
+
+                    <option value="custom">
+                        Elegir fecha
+                    </option>
+
+                </select>
+
+
+                <!-- FECHA PERSONALIZADA -->
+
+                <div
+                    id="customDateContainer"
+                    class="custom-date-container hidden"
+                >
+
+                    <label
+                        for="customTaskDate"
+                        class="custom-date-label"
+                    >
+                        Selecciona el día
+                    </label>
+
+
+                    <input
+                        type="date"
+                        id="customTaskDate"
+                        class="custom-task-date"
+                    >
+
+                </div>
+
+            </div>
+
+
+            <!-- ====================================
+                 BOTONES
+            ==================================== -->
 
             <div class="modal-buttons">
 
@@ -197,9 +430,7 @@
     </div>
 
 
-    <!-- ========================================
-         JAVASCRIPT
-    ======================================== -->
+    <!-- JAVASCRIPT -->
 
     <script src="./app.js"></script>
 

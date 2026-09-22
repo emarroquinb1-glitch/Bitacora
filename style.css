@@ -1,5 +1,5 @@
 /* ========================================
-   CONFIGURACIÓN GENERAL
+   RESET
 ======================================== */
 
 * {
@@ -9,8 +9,11 @@
 }
 
 
-body {
+/* ========================================
+   BODY
+======================================== */
 
+body {
     font-family:
         -apple-system,
         BlinkMacSystemFont,
@@ -18,48 +21,38 @@ body {
         sans-serif;
 
     background: #f5f5f7;
-
     color: #1c1c1e;
 
+    min-height: 100vh;
 }
 
 
 /* ========================================
-   ENCABEZADO
+   HEADER
 ======================================== */
 
 .header {
-
-    display: flex;
-
-    justify-content: space-between;
-
-    align-items: center;
-
     padding: 20px;
-
-    background: white;
-
+    background: #ffffff;
 }
 
+.header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
 .header h1 {
-
     font-size: 28px;
-
     font-weight: 700;
-
+    line-height: 1.2;
 }
 
-
 .header p {
-
     margin-top: 4px;
-
     color: #8e8e93;
-
+    font-size: 17px;
     text-transform: lowercase;
-
 }
 
 
@@ -68,110 +61,323 @@ body {
 ======================================== */
 
 .add-button {
-
     width: 54px;
-
     height: 54px;
 
     display: flex;
-
     align-items: center;
-
     justify-content: center;
 
     border: none;
-
     border-radius: 50%;
 
     background: #007aff;
-
-    color: white;
+    color: #ffffff;
 
     cursor: pointer;
 
     transition:
         transform 0.15s ease,
         background 0.15s ease;
-
 }
-
 
 .add-button:hover {
-
     background: #006ee6;
-
     transform: scale(1.05);
-
 }
-
 
 .add-button:active {
-
     transform: scale(0.95);
-
 }
 
-
 .add-button svg {
-
     display: block;
-
 }
 
 
 /* ========================================
-   CONTENIDO
+   ÁREA DE BUSCADOR Y FILTROS
+======================================== */
+
+.filters-area {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 22px;
+}
+
+
+/* ========================================
+   BUSCADOR
+======================================== */
+
+.search-box {
+    position: relative;
+
+    flex: 1;
+
+    display: flex;
+    align-items: center;
+
+    height: 44px;
+
+    background: #f2f2f7;
+
+    border-radius: 12px;
+
+    transition:
+        background 0.15s ease,
+        box-shadow 0.15s ease;
+}
+
+.search-box:focus-within {
+    background: #ffffff;
+
+    box-shadow:
+        0 0 0 2px
+        rgba(0, 122, 255, 0.18);
+}
+
+.search-icon {
+    position: absolute;
+    left: 13px;
+
+    color: #8e8e93;
+
+    pointer-events: none;
+}
+
+.search-box input {
+    width: 100%;
+    height: 100%;
+
+    padding:
+        0
+        14px
+        0
+        40px;
+
+    border: none;
+    outline: none;
+
+    background: transparent;
+
+    color: #1c1c1e;
+
+    font-family: inherit;
+    font-size: 16px;
+}
+
+.search-box input::placeholder {
+    color: #8e8e93;
+}
+
+
+/* ========================================
+   FILTRO DE ESTADO
+======================================== */
+
+.filter-box {
+    display: flex;
+    align-items: center;
+
+    height: 44px;
+
+    padding: 0 10px;
+
+    background: #f2f2f7;
+
+    border-radius: 12px;
+
+    color: #6e6e73;
+
+    flex-shrink: 0;
+}
+
+.filter-icon {
+    flex-shrink: 0;
+}
+
+.filter-box select {
+    height: 100%;
+
+    padding:
+        0
+        2px
+        0
+        7px;
+
+    border: none;
+    outline: none;
+
+    background: transparent;
+
+    color: #1c1c1e;
+
+    font-family: inherit;
+    font-size: 15px;
+
+    cursor: pointer;
+}
+
+
+/* ========================================
+   FILTRO DE FECHA
+======================================== */
+
+.date-filter-box {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    height: 44px;
+
+    padding: 0 8px;
+
+    background: #f2f2f7;
+
+    border-radius: 12px;
+
+    color: #6e6e73;
+
+    flex-shrink: 0;
+
+    transition:
+        background 0.15s ease,
+        box-shadow 0.15s ease;
+}
+
+.date-filter-box:focus-within {
+    background: #ffffff;
+
+    box-shadow:
+        0 0 0 2px
+        rgba(0, 122, 255, 0.18);
+}
+
+.calendar-icon {
+    flex-shrink: 0;
+}
+
+.date-filter-box input {
+    width: 132px;
+    height: 100%;
+
+    padding:
+        0
+        3px
+        0
+        7px;
+
+    border: none;
+    outline: none;
+
+    background: transparent;
+
+    color: #1c1c1e;
+
+    font-family: inherit;
+    font-size: 14px;
+
+    cursor: pointer;
+}
+
+
+/* ========================================
+   BOTÓN LIMPIAR FECHA
+======================================== */
+
+.clear-date-button {
+    width: 24px;
+    height: 24px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: none;
+    border-radius: 50%;
+
+    background: #d1d1d6;
+    color: #636366;
+
+    cursor: pointer;
+
+    flex-shrink: 0;
+
+    transition:
+        background 0.15s ease,
+        transform 0.15s ease;
+}
+
+.clear-date-button:hover {
+    background: #c7c7cc;
+    transform: scale(1.05);
+}
+
+.clear-date-button:active {
+    transform: scale(0.95);
+}
+
+.clear-date-button svg {
+    display: block;
+}
+
+
+/* ========================================
+   ELEMENTOS OCULTOS
+======================================== */
+
+.hidden {
+    display: none !important;
+}
+
+
+/* ========================================
+   CONTENEDOR PRINCIPAL
 ======================================== */
 
 .container {
-
     width: 100%;
-
     max-width: 700px;
 
     margin: 0 auto;
 
-    padding: 30px 20px;
-
+    padding:
+        30px
+        20px;
 }
 
 
 /* ========================================
-   GRUPO DE CADA DÍA
+   GRUPOS POR DÍA
 ======================================== */
 
 .day-group {
-
     margin-bottom: 32px;
-
 }
 
-
 .day-title {
-
     margin-bottom: 15px;
 
     font-size: 22px;
-
     font-weight: 700;
 
-    text-transform: capitalize;
+    line-height: 1.3;
 
+    text-transform: capitalize;
 }
 
 
 /* ========================================
-   LISTA
+   LISTA DE TAREAS
 ======================================== */
 
 .task-list {
-
     display: flex;
-
     flex-direction: column;
-
     gap: 10px;
-
 }
 
 
@@ -180,38 +386,35 @@ body {
 ======================================== */
 
 .task {
-
     display: flex;
-
-    align-items: center;
+    align-items: flex-start;
 
     gap: 12px;
 
     width: 100%;
-
     min-height: 64px;
 
-    padding: 12px 14px;
+    padding:
+        12px
+        14px;
 
-    background: white;
+    background: #ffffff;
 
     border-radius: 14px;
 
     box-shadow:
-        0 1px 3px rgba(0, 0, 0, 0.08);
+        0 1px 3px
+        rgba(0, 0, 0, 0.08);
 
     transition:
         box-shadow 0.15s ease,
         transform 0.15s ease;
-
 }
 
-
 .task:hover {
-
     box-shadow:
-        0 3px 8px rgba(0, 0, 0, 0.10);
-
+        0 3px 8px
+        rgba(0, 0, 0, 0.10);
 }
 
 
@@ -220,198 +423,140 @@ body {
 ======================================== */
 
 .task-checkbox {
-
     width: 22px;
-
     height: 22px;
 
     flex-shrink: 0;
 
-    margin: 0;
+    margin-top: 2px;
 
     cursor: pointer;
 
     accent-color: #007aff;
-
 }
 
 
 /* ========================================
-   TEXTO
+   TEXTO DE LA TAREA
 ======================================== */
 
 .task-text {
-
     flex: 1;
 
     min-width: 0;
 
     font-size: 16px;
+    line-height: 1.5;
 
-    line-height: 1.4;
+    /*
+       MUY IMPORTANTE:
+       Respeta los saltos de línea
+       escritos por el usuario.
+    */
+
+    white-space: pre-wrap;
 
     word-break: break-word;
 
     transition:
         color 0.15s ease;
-
 }
-
-
-/* ========================================
-   COMPLETADA
-======================================== */
 
 .task-text.completed {
-
     text-decoration: line-through;
-
     color: #8e8e93;
-
 }
 
 
 /* ========================================
-   BOTONES
+   ACCIONES
 ======================================== */
 
 .task-actions {
-
     display: flex;
-
-    align-items: center;
+    align-items: flex-start;
 
     gap: 6px;
 
     flex-shrink: 0;
+}
 
+.edit-button,
+.delete-button {
+    width: 36px;
+    height: 36px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: none;
+    border-radius: 10px;
+
+    cursor: pointer;
+
+    transition:
+        background 0.15s ease,
+        transform 0.15s ease;
 }
 
 
-/* ========================================
-   EDITAR
-======================================== */
+/* EDITAR */
 
 .edit-button {
-
-    width: 36px;
-
-    height: 36px;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    border: none;
-
-    border-radius: 10px;
-
     background: #f2f2f7;
-
     color: #007aff;
-
-    cursor: pointer;
-
-    transition:
-        background 0.15s ease,
-        transform 0.15s ease;
-
 }
-
 
 .edit-button:hover {
-
     background: #e5e5ea;
-
     transform: scale(1.05);
-
 }
-
 
 .edit-button:active {
-
     transform: scale(0.95);
-
 }
-
 
 .edit-button svg {
-
     display: block;
-
 }
 
 
-/* ========================================
-   ELIMINAR
-======================================== */
+/* ELIMINAR */
 
 .delete-button {
-
-    width: 36px;
-
-    height: 36px;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    border: none;
-
-    border-radius: 10px;
-
     background: #fff1f0;
-
     color: #ff3b30;
-
-    cursor: pointer;
-
-    transition:
-        background 0.15s ease,
-        transform 0.15s ease;
-
 }
-
 
 .delete-button:hover {
-
     background: #ffe0dd;
-
     transform: scale(1.05);
-
 }
-
 
 .delete-button:active {
-
     transform: scale(0.95);
-
 }
 
-
 .delete-button svg {
-
     display: block;
-
 }
 
 
 /* ========================================
-   MENSAJE SIN TAREAS
+   MENSAJE VACÍO
 ======================================== */
 
 .empty-message {
-
-    padding: 30px 10px;
+    padding:
+        30px
+        10px;
 
     text-align: center;
 
     color: #8e8e93;
 
+    font-size: 16px;
 }
 
 
@@ -420,7 +565,6 @@ body {
 ======================================== */
 
 .modal {
-
     position: fixed;
 
     inset: 0;
@@ -430,91 +574,228 @@ body {
     display: flex;
 
     align-items: center;
-
     justify-content: center;
 
     padding: 20px;
 
-    background: rgba(0, 0, 0, 0.35);
+    background:
+        rgba(0, 0, 0, 0.35);
 
     backdrop-filter: blur(4px);
-
-}
-
-
-.hidden {
-
-    display: none;
-
 }
 
 
 /* ========================================
-   CONTENIDO MODAL
+   CONTENIDO DEL MODAL
 ======================================== */
 
 .modal-content {
-
     width: 100%;
-
     max-width: 400px;
 
     padding: 25px;
 
-    background: white;
+    background: #ffffff;
 
     border-radius: 20px;
 
     box-shadow:
-        0 10px 40px rgba(0, 0, 0, 0.20);
-
+        0 10px 40px
+        rgba(0, 0, 0, 0.20);
 }
 
-
 .modal-content h2 {
-
     margin-bottom: 20px;
 
     font-size: 22px;
-
+    font-weight: 700;
 }
 
 
 /* ========================================
-   INPUT
+   ÁREA DE TEXTO DE LA TAREA
 ======================================== */
 
-.modal-content input {
+.task-input {
+    display: block;
 
     width: 100%;
 
-    padding: 14px;
+    min-height: 112px;
 
-    border: 1px solid #d1d1d6;
+    max-height: 260px;
 
-    border-radius: 10px;
+    padding:
+        14px;
+
+    border:
+        1px solid #d1d1d6;
+
+    border-radius: 12px;
 
     outline: none;
+
+    resize: vertical;
+
+    overflow-y: auto;
+
+    background: #ffffff;
+
+    color: #1c1c1e;
 
     font-family: inherit;
 
     font-size: 16px;
 
+    line-height: 1.5;
+
     transition:
         border-color 0.15s ease,
         box-shadow 0.15s ease;
-
 }
 
-
-.modal-content input:focus {
-
+.task-input:focus {
     border-color: #007aff;
 
     box-shadow:
         0 0 0 3px
         rgba(0, 122, 255, 0.15);
+}
 
+.task-input::placeholder {
+    color: #8e8e93;
+}
+
+
+/* ========================================
+   FECHA AL CREAR TAREA
+======================================== */
+
+.task-date-section {
+    margin-top: 16px;
+}
+
+.task-date-label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: #6e6e73;
+
+    font-size: 14px;
+}
+
+.task-date-select {
+    width: 100%;
+    height: 46px;
+
+    padding:
+        0
+        12px;
+
+    border:
+        1px solid #d1d1d6;
+
+    border-radius: 10px;
+
+    outline: none;
+
+    background: #ffffff;
+
+    color: #1c1c1e;
+
+    font-family: inherit;
+    font-size: 16px;
+
+    cursor: pointer;
+
+    transition:
+        border-color 0.15s ease,
+        box-shadow 0.15s ease;
+}
+
+.task-date-select:focus {
+    border-color: #007aff;
+
+    box-shadow:
+        0 0 0 3px
+        rgba(0, 122, 255, 0.15);
+}
+
+
+/* ========================================
+   FECHA PERSONALIZADA
+======================================== */
+
+.custom-date-container {
+    margin-top: 12px;
+
+    padding: 12px;
+
+    background: #f2f2f7;
+
+    border-radius: 12px;
+
+    animation:
+        customDateAppear
+        0.15s ease;
+}
+
+@keyframes customDateAppear {
+
+    from {
+        opacity: 0;
+        transform: translateY(-4px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.custom-date-label {
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: #6e6e73;
+
+    font-size: 13px;
+}
+
+.custom-task-date {
+    width: 100%;
+    height: 42px;
+
+    padding:
+        0
+        10px;
+
+    border:
+        1px solid #d1d1d6;
+
+    border-radius: 9px;
+
+    outline: none;
+
+    background: #ffffff;
+
+    color: #1c1c1e;
+
+    font-family: inherit;
+
+    font-size: 15px;
+
+    cursor: pointer;
+}
+
+.custom-task-date:focus {
+    border-color: #007aff;
+
+    box-shadow:
+        0 0 0 3px
+        rgba(0, 122, 255, 0.15);
 }
 
 
@@ -523,7 +804,6 @@ body {
 ======================================== */
 
 .modal-buttons {
-
     display: flex;
 
     justify-content: flex-end;
@@ -531,104 +811,175 @@ body {
     gap: 10px;
 
     margin-top: 20px;
-
 }
 
-
 .modal-buttons button {
-
-    padding: 10px 16px;
+    padding:
+        10px
+        16px;
 
     border: none;
 
     border-radius: 10px;
 
     font-family: inherit;
-
     font-size: 15px;
 
     cursor: pointer;
 
+    transition:
+        background 0.15s ease,
+        transform 0.15s ease;
 }
 
+
+/* CANCELAR */
 
 #cancelButton {
-
     background: #f2f2f7;
-
     color: #1c1c1e;
-
 }
-
 
 #cancelButton:hover {
-
     background: #e5e5ea;
-
 }
 
+#cancelButton:active {
+    transform: scale(0.97);
+}
+
+
+/* GUARDAR */
 
 #saveButton {
-
     background: #007aff;
-
-    color: white;
-
+    color: #ffffff;
 }
 
-
 #saveButton:hover {
-
     background: #006ee6;
+}
 
+#saveButton:active {
+    transform: scale(0.97);
 }
 
 
 /* ========================================
-   MÓVIL
+   RESPONSIVE - IPHONE
 ======================================== */
 
-@media (max-width: 600px) {
+@media (max-width: 700px) {
 
     .header {
-
         padding: 16px;
-
     }
-
 
     .header h1 {
-
         font-size: 26px;
-
     }
 
+    .header p {
+        font-size: 16px;
+    }
+
+
+    /* FILTROS */
+
+    .filters-area {
+
+        display: grid;
+
+        grid-template-columns:
+            1fr 1fr;
+
+        gap: 8px;
+
+        margin-top: 18px;
+    }
+
+
+    .search-box {
+
+        grid-column:
+            1 / -1;
+
+        width: 100%;
+    }
+
+
+    .filter-box {
+
+        width: 100%;
+
+        min-width: 0;
+
+        padding:
+            0
+            8px;
+    }
+
+
+    .filter-box select {
+
+        width: 100%;
+
+        min-width: 0;
+
+        font-size: 14px;
+    }
+
+
+    .date-filter-box {
+
+        width: 100%;
+
+        min-width: 0;
+
+        padding:
+            0
+            8px;
+    }
+
+
+    .date-filter-box input {
+
+        width: 100%;
+
+        min-width: 0;
+
+        font-size: 14px;
+    }
+
+
+    /* CONTENIDO */
 
     .container {
 
-        padding: 20px 12px;
-
+        padding:
+            20px
+            12px;
     }
 
 
     .day-group {
 
         margin-bottom: 26px;
-
     }
 
 
+    /* TAREAS */
+
     .task {
 
-        padding: 12px;
-
+        padding:
+            12px;
     }
 
 
     .task-actions {
 
         gap: 4px;
-
     }
 
 
@@ -636,9 +987,78 @@ body {
     .delete-button {
 
         width: 34px;
-
         height: 34px;
+    }
 
+
+    /* MODAL */
+
+    .modal-content {
+
+        max-width: 100%;
+
+        padding:
+            22px;
+    }
+
+
+    .task-input {
+
+        min-height: 120px;
+
+        max-height: 240px;
+
+        resize: none;
+    }
+
+}
+
+
+/* ========================================
+   IPHONE PEQUEÑO
+======================================== */
+
+@media (max-width: 380px) {
+
+    .add-button {
+
+        width: 50px;
+        height: 50px;
+    }
+
+
+    .header h1 {
+
+        font-size: 24px;
+    }
+
+
+    .task {
+
+        gap: 9px;
+
+        padding:
+            10px;
+    }
+
+
+    .task-text {
+
+        font-size: 15px;
+    }
+
+
+    .edit-button,
+    .delete-button {
+
+        width: 32px;
+        height: 32px;
+    }
+
+
+    .task-input {
+
+        min-height: 110px;
     }
 
 }
