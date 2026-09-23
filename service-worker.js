@@ -2,7 +2,7 @@
 // SERVICE WORKER - LOG+
 // ========================================
 
-const CACHE_NAME = "logplus-v1";
+const CACHE_NAME = "logplus-v2";
 
 const APP_FILES = [
     "./",
@@ -22,7 +22,8 @@ self.addEventListener("install", event => {
 
     event.waitUntil(
 
-        caches.open(CACHE_NAME)
+        caches
+            .open(CACHE_NAME)
             .then(cache => {
 
                 return cache.addAll(APP_FILES);
@@ -44,20 +45,17 @@ self.addEventListener("activate", event => {
 
     event.waitUntil(
 
-        caches.keys()
+        caches
+            .keys()
             .then(cacheNames => {
 
                 return Promise.all(
 
                     cacheNames.map(cacheName => {
 
-                        if (
-                            cacheName !== CACHE_NAME
-                        ) {
+                        if (cacheName !== CACHE_NAME) {
 
-                            return caches.delete(
-                                cacheName
-                            );
+                            return caches.delete(cacheName);
 
                         }
 
@@ -80,9 +78,7 @@ self.addEventListener("activate", event => {
 
 self.addEventListener("fetch", event => {
 
-    if (
-        event.request.method !== "GET"
-    ) {
+    if (event.request.method !== "GET") {
 
         return;
 
@@ -92,16 +88,16 @@ self.addEventListener("fetch", event => {
     event.respondWith(
 
         fetch(event.request)
+
             .then(response => {
 
                 return response;
 
             })
+
             .catch(() => {
 
-                return caches.match(
-                    event.request
-                );
+                return caches.match(event.request);
 
             })
 
