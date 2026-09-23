@@ -69,6 +69,7 @@ body {
 
     min-width: 54px;
     min-height: 54px;
+
     max-width: 54px;
     max-height: 54px;
 
@@ -110,6 +111,7 @@ body {
 
     min-width: 54px;
     min-height: 54px;
+
     max-width: 54px;
     max-height: 54px;
 
@@ -779,6 +781,9 @@ body {
 ======================================== */
 
 .custom-date-container {
+    width: 100%;
+    max-width: 100%;
+
     margin-top: 12px;
 
     padding: 12px;
@@ -786,6 +791,10 @@ body {
     background: #f2f2f7;
 
     border-radius: 12px;
+
+    overflow: hidden;
+
+    box-sizing: border-box;
 
     animation:
         customDateAppear
@@ -816,7 +825,12 @@ body {
 }
 
 .custom-task-date {
+    display: block;
+
     width: 100%;
+    max-width: 100%;
+    min-width: 0;
+
     height: 42px;
 
     padding:
@@ -839,6 +853,10 @@ body {
     font-size: 15px;
 
     cursor: pointer;
+
+    box-sizing: border-box;
+
+    overflow: hidden;
 }
 
 .custom-task-date:focus {
@@ -956,6 +974,7 @@ body {
 
         min-width: 50px;
         min-height: 50px;
+
         max-width: 50px;
         max-height: 50px;
     }
@@ -966,6 +985,7 @@ body {
 
         min-width: 50px;
         min-height: 50px;
+
         max-width: 50px;
         max-height: 50px;
     }
@@ -1113,6 +1133,7 @@ body {
 
         min-width: 50px;
         min-height: 50px;
+
         max-width: 50px;
         max-height: 50px;
     }
@@ -1124,6 +1145,7 @@ body {
 
         min-width: 50px;
         min-height: 50px;
+
         max-width: 50px;
         max-height: 50px;
     }
